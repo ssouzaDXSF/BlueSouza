@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Scott Souza</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            background-color: #4CAF50;
+            padding: 20px;
+            color: white;
+        }
+        header img {
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        .profile-info {
+            font-size: 24px;
+        }
+        .agenda, .countdown {
+            margin: 20px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .agenda h2, .countdown h2 {
+            margin-top: 0;
+        }
+        .countdown {
+            background-color: #e7f7e7;
+        }
+        .agenda ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .agenda ul li {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="Scott-Souza-Blessed-Sacrament-School.jpg" alt="Scott Souza" width="150">
+        <div class="profile-info">
+            <h1>Scott Souza</h1>
+            <p>Science Teacher at Blessed Sacrament School</p>
+        </div>
+    </header>
+
+    <div class="agenda">
+        <h2>Agenda Schedule</h2>
+        <ul>
+            <li>Monday: Chemistry Lesson</li>
+            <li>Tuesday: Biology Lab</li>
+            <li>Wednesday: Physics Lecture</li>
+            <li>Thursday: Earth Science Exploration</li>
+            <li>Friday: Science Project Discussions</li>
+        </ul>
+    </div>
+
+    <div class="countdown">
+        <h2>Countdown to the End of School: 5/30/26</h2>
+        <div id="countdown"></div>
+    </div>
+
+    <script>
+        // Countdown Script
+        const endDate = new Date("May 30, 2026 00:00:00").getTime();
+        const countdownElement = document.getElementById("countdown");
+
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const distance = endDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            if (distance < 0) {
+                countdownElement.innerHTML = "School is out!";
+            }
+        };
+
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
